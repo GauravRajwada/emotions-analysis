@@ -1,8 +1,2 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jul 12 08:56:47 2020
-
-@author: Gaurav
-"""
-runtime=python3.7
+runtime=python37
 
