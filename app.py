@@ -9,6 +9,8 @@ import os
 import nltk
 import seaborn as sb
 import pandas as pd
+import sys
+import logging
 # nltk.download("wordnet", "whatever_the_absolute_path_to_myapp_is/nltk_data/")
 classifier=pickle.load(open("sentiment_model1.pkl","rb"))
 cv=pickle.load(open("sentiment_vectorizer.pkl","rb"))
@@ -19,6 +21,9 @@ lm=WordNetLemmatizer()
 emotions={0:"Angry",1:"Sad",2:'Fear',3:"Surprise",4:"Joy",5:"Love"}
 
 app=Flask(__name__)
+
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 @app.route("/",methods=['GET'])
 
